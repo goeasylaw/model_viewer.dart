@@ -25,6 +25,10 @@ abstract class HTMLBuilder {
     html.write(' src="${htmlEscape.convert(src)}"');
     html.write(
         ' style="background-color: rgb(${backgroundColor.red}, ${backgroundColor.green}, ${backgroundColor.blue});"');
+
+
+    html.write(' touch-action="none"');
+
     if (alt != null) {
       html.write(' alt="${htmlEscape.convert(alt)}"');
     }
