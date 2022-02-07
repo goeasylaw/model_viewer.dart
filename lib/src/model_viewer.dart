@@ -8,6 +8,8 @@ import 'dart:typed_data' show Uint8List;
 
 import 'package:android_intent/android_intent.dart';
 import 'package:android_intent/flag.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:webview_flutter/platform_interface.dart';
@@ -120,6 +122,9 @@ class _ModelViewerState extends State<ModelViewer> {
   Widget build(final BuildContext context) {
     return WebView(
       initialUrl: null,
+      gestureRecognizers: Set()
+        ..add(Factory<VerticalDragGestureRecognizer>(
+                () => VerticalDragGestureRecognizer())),
       javascriptMode: JavascriptMode.unrestricted,
       initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.always_allow,
       onWebViewCreated: (final WebViewController webViewController) async {
